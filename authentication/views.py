@@ -32,15 +32,15 @@ def login_view(request):
                 username=data['username'],
                 password=data['password']
             )
-            if user is not None:
-                login(request, user)
-                HttpResponseRedirect(reverse('homepage'))
 
-    form = LoginForm()
+            login(request, user)
+            return HttpResponseRedirect(reverse('homepage'))
+    else:
+        form = LoginForm()
 
     return render(request, 'generic_form.html', {'form': form})
 
 
 def logout_view(request):
     logout(request)
-    return HttpResponseRedirect(reverse('homepage'))
+    return HttpResponseRedirect(reverse('login'))
