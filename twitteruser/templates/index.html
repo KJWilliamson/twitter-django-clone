@@ -12,8 +12,12 @@
     <title>Twitter clone</title>
   </head>
 
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+
+{% if request.user.is_authenticated %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand"><strong>TWITTERCLONE</strong></a>
     <a href="/" class="btn btn-warning active" role="button" data-bs-toggle="button">Home</a>
@@ -24,7 +28,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a href="/tweets/" class="btn btn-info active" role="button" data-bs-toggle="button">Tweets!!!</a>
+          <a href="/createtweet/" class="btn btn-info active" role="button" data-bs-toggle="button">Tweets!!!</a>
 <!--          <a class="nav-link active" aria-current="page" href="#">Tweets!!!</a>-->
         </li>
         <li class="nav-item">
@@ -38,11 +42,29 @@
           <li class="nav-item">
           <a class="nav-link active" href="/logout/">Log out</a>
         </li>
-<!--        <a href="#" class="btn btn-primary active" role="button" data-bs-toggle="button">Toggle link</a>-->
-<!--        <a href="#" class="btn btn-primary active" role="button" data-bs-toggle="button" aria-pressed="true">Active toggle link</a>-->
-<!--        <a href="#" class="btn btn-primary active" role="button" data-bs-toggle="button">Disabled toggle link</a>-->
+          <li class="nav-item">
+          <a class="nav-link active" href="/signup/">Sign Up</a>
+        </li>
+          {% endif %}
+
       </ul>
     </div>
   </div>
 </nav>
+<div class="container">
+    {% if request.user.is_authenticated %}
+
+    <h4>Welcome, {{request.user.username}}</h4>
+    {% else %}
+    <h4>Welcome to TwitterClone</h4>
+    {% endif %}
+<br>
+    <ul>
+        {% for tweet in tweets %}
+            <li>{{ tweet.username }} {{ tweet.created_by.twitteruser }} {{ tweeter.data }}</li>
+
+        {% endfor %}
+    </ul>
+
+</div>
 </body>

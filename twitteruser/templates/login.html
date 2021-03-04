@@ -1,0 +1,11 @@
+<H2>WELCOME TO TWITTERCLONE</H2>
+
+<H3>PLEASE LOG IN OR <a href="/signup/">SIGNUP</a></H3>
+
+<form action='' method="post">
+    {% csrf_token %}
+<!--    as_p changed form to look better-->
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+
+</form>
