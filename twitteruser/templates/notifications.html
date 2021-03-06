@@ -39,8 +39,19 @@
           <a class="nav-link active" href="/logout/">Log out</a>
         </li>
 
+
       </ul>
     </div>
   </div>
 </nav>
+  {% block content %}
+          <h1>Notifications</h1>
+        <ul>
+        {% for n in notifications %}
+          <li>{{ twitteruser }} </li>
+        {% endfor %}
+
+   </ul>
+ {% endblock content %}
+
 </body>

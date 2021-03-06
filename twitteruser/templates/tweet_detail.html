@@ -47,10 +47,15 @@
 </nav>
 </body>
 
-<form action='' method="post">
-    {% csrf_token %}
-<!--    as_p changed form to look better-->
-    {{ form.as_p }}
-    <input type="submit" value="Submit">
+
+  <h1>TWEET</h1>
+  <ul>
+
+       <li> @{{ tweet_id.tweeter }} {{ tweet_id.created_at }} <br />
+       {{ tweet_id.text }}</li>
+
+
+
+   </ul>
 
 </form>

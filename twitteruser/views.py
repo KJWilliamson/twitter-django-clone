@@ -1,3 +1,4 @@
+# render is what puts variables & info on the templates
 from django.shortcuts import render, HttpResponseRedirect, reverse
 from django.contrib.auth.decorators import login_required
 from twitteruser.models import TwitterUser
@@ -9,19 +10,20 @@ from notification.models import Notification
 # Create your views here.
 @login_required
 def index(request):
-    tweets = TwitterUser.objects.all().order_by('-date_joined')
-    return render(request, 'index.html', {'tweets': tweets})
+    # all_users = TwitterUser.objects.all()
+    all_tweets = Tweet.objects.all().order_by('created_at').reverse()
+    return render(request, 'index.html', {'all_tweets': all_tweets})
 
 
 def user_detail_view(request, username):
     current_user = TwitterUser.objects.filter(username=username).first()
-    tweets = Tweet.objects.filter(tweeter=current_user).order_by('-date_joined')
+    user_tweets = Tweet.objects.filter(tweeter=current_user).order_by('created_at')
     if current_user.is_authenticated:
-        followers = request.user.followers.all()
+        following = request.user.following.all()
     else:
-        followers = []
+        following = []
 
-    return render(request, 'user_detail.html', {'current_user': current_user, 'tweets': tweets, 'followers': followers})
+    return render(request, 'user_detail.html', {'current_user': current_user, 'user_tweets': user_tweets, 'following': following})
 
 
 def follow_view(request, username):

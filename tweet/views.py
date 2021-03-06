@@ -16,10 +16,10 @@ import re
 
 
 # Create your views here.
-# Create your views here.
+
 def tweet_detail(request, tweet_id):
-    tweet = Tweet.objects.filter(id=tweet_id).first()
-    return render(request, 'tweet_detail.html', {'tweet': tweet})
+    tweet_id = Tweet.objects.get(id=tweet_id)
+    return render(request, 'tweet_detail.html', {'tweet_id': tweet_id})
 
 
 @login_required

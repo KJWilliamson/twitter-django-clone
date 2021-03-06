@@ -59,12 +59,27 @@
     <h4>Welcome to TwitterClone</h4>
     {% endif %}
 <br>
-    <ul>
-        {% for tweet in tweets %}
-            <li>{{ tweet.username }} {{ tweet.created_by.twitteruser }} {{ tweeter.data }}</li>
+<!--    <ul>-->
+<!--        {% for tweet in tweets %}-->
+<!--            <li>{{ tweet.username }} {{ tweet_detail.tweet }} {{ tweeter.data }}</li>-->
 
+<!--        {% endfor %}-->
+<!--    </ul>-->
+
+    {% block content %}
+   <h1>Tweet tweet</h1>
+<!--    <h2>tweets.tweet_id.count</h2>-->
+   <ul>
+       {% for t in all_tweets %}
+       <li><a href="/user/{{t.tweeter}}">{{ t.tweeter }}</a> <a href="/tweet/{{t.id}}">{{ t.created_at }}</a><br />
+                 {{ t.text }} </li>
         {% endfor %}
-    </ul>
+
+   </ul>
+
+
+
+ {% endblock content %}
 
 </div>
 </body>
