@@ -18,12 +18,13 @@ def index(request):
 def user_detail_view(request, username):
     current_user = TwitterUser.objects.filter(username=username).first()
     user_tweets = Tweet.objects.filter(tweeter=current_user).order_by('created_at')
+    notify = Notification.objects.filter(profile=request.user)
     if current_user.is_authenticated:
         following = request.user.following.all()
     else:
         following = []
 
-    return render(request, 'user_detail.html', {'current_user': current_user, 'user_tweets': user_tweets, 'following': following})
+    return render(request, 'user_detail.html', {'current_user': current_user, 'user_tweets': user_tweets, 'notify': notify, 'following': following})
 
 
 def follow_view(request, username):

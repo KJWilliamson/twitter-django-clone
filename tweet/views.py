@@ -12,6 +12,7 @@ from twitteruser.models import TwitterUser
 from notification.models import Notification
 from tweet.models import Tweet
 from tweet.forms import TweetForm
+from django.contrib import messages
 import re
 
 
@@ -19,12 +20,14 @@ import re
 
 def tweet_detail(request, tweet_id):
     tweet_id = Tweet.objects.get(id=tweet_id)
-    return render(request, 'tweet_detail.html', {'tweet_id': tweet_id})
+    notify = Notification.objects.filter(profile=request.user)
+    return render(request, 'tweet_detail.html', {'tweet_id': tweet_id, 'notify': notify})
 
 
 @login_required
 def create_tweet_view(request):
     # if request.method == 'POST':
+    notify = Notification.objects.filter(profile=request.user)
     form = TweetForm(request.POST)
     if form.is_valid():
         data = form.cleaned_data
@@ -45,4 +48,4 @@ def create_tweet_view(request):
         return HttpResponseRedirect(reverse('homepage'))
 
     else:
-        return render(request, 'generic_form.html', {'form': form})
+        return render(request, 'generic_form.html', {'form': form, 'notify': notify})
