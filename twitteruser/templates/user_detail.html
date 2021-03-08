@@ -50,10 +50,18 @@
       <h3>Tweets: {{ user_tweets|length }}</h3>
     <h3>Following: {{ current_user.following }}</h3>
 
+
       <button><a href="/follow/{{ current_user.followers.add }}/">Follow</a></button>
       <button><a href="/unfollow/{{ current_user.followers.remove }}/">UnFollow</a></button>
 
     </div>
+    <ul>
+       {% for t in user_tweets %}
+       <li><a href="/user/{{t.tweeter}}">@{{ t.tweeter }}</a> <a href="/tweet/{{t.id}}">{{ t.created_at }}</a><br />
+                 {{ t.text }} </li>
+        {% endfor %}
+
+   </ul>
 
 
 </body>
