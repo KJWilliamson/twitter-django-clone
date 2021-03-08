@@ -48,7 +48,7 @@
   <br />
   <br />
 
-  {% for t in profile_tweets %}
+  {% for t in main_user_tweets %}
        <li><a href="/user/{{t.tweeter}}">@{{ t.tweeter }}</a> <a href="/tweet/{{t.id}}">{{ t.created_at }}</a><br />
                  {{ t.text }} </li>
         {% endfor %}
