@@ -34,7 +34,8 @@ def login_view(request):
                 username=data['username'],
                 password=data['password']
             )
-            login(request, user)
+            if user:
+                login(request, user)
             return HttpResponseRedirect(reverse('homepage'))
     else:
         form = LoginForm()

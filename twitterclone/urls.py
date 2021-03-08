@@ -26,6 +26,7 @@ urlpatterns = [
     path('', index, name='homepage'),
     path('signup/', signup_view, name='signup'),
     path('signup/accounts/login/', login_view, name='login'),
+    path('login/', login_view, name='login'),
     path('accounts/login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('user/<str:username>/', user_detail_view, name='userdetail'),
