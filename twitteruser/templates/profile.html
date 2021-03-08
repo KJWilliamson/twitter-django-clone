@@ -44,6 +44,13 @@
   </nav>
   <h3>@{{ profile_user.username }}</h3>
   <h3>Tweets: {{ tweet_count|length }}</h3>
-<h3>Following: </h3>
+  <h3>Following: </h3>
+  <br />
+  <br />
+
+  {% for t in profile_tweets %}
+       <li><a href="/user/{{t.tweeter}}">@{{ t.tweeter }}</a> <a href="/tweet/{{t.id}}">{{ t.created_at }}</a><br />
+                 {{ t.text }} </li>
+        {% endfor %}
 
 </body>

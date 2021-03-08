@@ -27,7 +27,8 @@ def profile_view(request):
     all_tweets = Tweet.objects.all().order_by('created_at').reverse()
     profile_user = TwitterUser.objects.get(username=request.user)
     tweet_count = Tweet.objects.filter(tweeter=request.user).order_by('-created_at')
-    return render(request, 'profile.html', {'all_tweets': all_tweets, 'profile_user': profile_user, 'tweet_count': tweet_count})
+    profile_tweets = Tweet.objects.filter(tweeter=profile_user).order_by('created_at').reverse()
+    return render(request, 'profile.html', {'all_tweets': all_tweets, 'profile_user': profile_user, 'tweet_count': tweet_count, 'profile_tweets': profile_tweets})
 
 
 def user_detail_view(request, username):
