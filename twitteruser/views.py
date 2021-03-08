@@ -7,7 +7,7 @@ from django.shortcuts import render, HttpResponseRedirect, reverse
 from django.contrib.auth.decorators import login_required
 from twitteruser.models import TwitterUser
 from tweet.models import Tweet
-from django.utils import timezone
+from django.views import View
 from notification.models import Notification
 
 
@@ -16,7 +16,13 @@ from notification.models import Notification
 def index(request):
     # all_users = TwitterUser.objects.all()
     all_tweets = Tweet.objects.all().order_by('created_at').reverse()
-    return render(request, 'index.html', {'all_tweets': all_tweets})
+    main_user = TwitterUser.objects.get(username=request.user)
+    tweet_count = Tweet.objects.filter(tweeter__username=request.user).count()
+    following_count = len(main_user.following.all())
+    home_tweets = Tweet.objects.filter(tweeter__in=request.user.following.all()).order_by('-created_at')
+    # notification = Tweet.objects.filter(tweeter=request.user).filter(notification_seen=False)
+    users_list = TwitterUser.objects.all()
+    return render(request, 'index.html', {'all_tweets': all_tweets, 'tweet_count': tweet_count, 'following_count': following_count, 'users_list': users_list, 'home_tweets': home_tweets})
 
 
 def profile_view(request):

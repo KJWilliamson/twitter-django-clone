@@ -22,6 +22,7 @@ from tweet.views import create_tweet_view, tweet_detail
 from twitteruser.views import user_detail_view, unfollow_view, follow_view, profile_view
 
 
+
 urlpatterns = [
     path('', index, name='homepage'),
     path('signup/', signup_view, name='signup'),
@@ -35,7 +36,7 @@ urlpatterns = [
     path('notifications/', notification_view, name='notifications'),
     path('unfollow/<str:username>/', unfollow_view, name='unfollow'),
     path('follow/<str:username>/', follow_view, name='follow'),
-    path('profile/', index, name='profile'),
+    path('profile/', profile_view, name='profile'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
 ]
