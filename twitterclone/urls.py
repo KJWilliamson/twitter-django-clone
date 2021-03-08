@@ -19,7 +19,7 @@ from authentication.views import signup_view, login_view, logout_view
 from notification.views import notification_view
 from twitteruser.views import index
 from tweet.views import create_tweet_view, tweet_detail
-from twitteruser.views import user_detail_view, unfollow_view, follow_view
+from twitteruser.views import user_detail_view, unfollow_view, follow_view, profile_view
 
 
 urlpatterns = [
@@ -39,4 +39,3 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
 ]
-

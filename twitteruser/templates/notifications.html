@@ -28,13 +28,12 @@
 <!--          <a class="nav-link active" aria-current="page" href="#">Tweets!!!</a>-->
         </li>
 
-
-          <li class="nav-item">
-            {% if notification %}
-                <a href="/notifications/" class="btn btn-warning active" role="button" data-bs-toggle="button">Notifications: {{ notification|length }} {% if notification|length > 0 %} {% endif %}</a>
-            {% endif %}
-            <a href="/notifications/" class="btn btn-warning active" role="button" data-bs-toggle="button">Notifications: </a>
-            </li>
+        <li class="nav-item">
+        {% if notification %}
+          <a href="/notifications/" class="btn btn-warning active" role="button" data-bs-toggle="button">Notifications: {{ notification|length }} {% if notification|length > 0 %} {% endif %}</a>
+        {% endif %}
+          <a href="/notifications/" class="btn btn-warning active" role="button" data-bs-toggle="button">Notifications: </a>
+        </li>
 
 
         <li class="nav-item">

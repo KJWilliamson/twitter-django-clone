@@ -47,11 +47,11 @@
     <div class="container">
 
     <h3>@{{ current_user.username }}</h3>
-      <h3>Tweets: {{ tweet.count }}</h3>
-    <h3>Following: {{ current_user.following.count }}</h3>
+      <h3>Tweets: {{ user_tweets|length }}</h3>
+    <h3>Following: {{ current_user.following }}</h3>
 
-      <button><a href="/follow/{{ current_user.username }}/">Follow</a></button>
-      <button><a href="/unfollow/{{ current_user.username }}/">UnFollow</a></button>
+      <button><a href="/follow/{{ current_user.followers.add }}/">Follow</a></button>
+      <button><a href="/unfollow/{{ current_user.followers.remove }}/">UnFollow</a></button>
 
     </div>
 
