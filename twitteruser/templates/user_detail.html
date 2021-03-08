@@ -45,16 +45,15 @@
 </nav>
 
     <div class="container">
-    <h1>USER</h1>
-    <h2>@{{ current_user.username }}</h2>
-    <h2>Following: {{ current_user.following.count }}</h2>
-    {% if request.user.is_authenticated and request.user != current_user %}
+
+    <h3>@{{ current_user.username }}</h3>
+      <h3>Tweets: {{ tweet.count }}</h3>
+    <h3>Following: {{ current_user.following.count }}</h3>
+
       <button><a href="/follow/{{ current_user.username }}/">Follow</a></button>
       <button><a href="/unfollow/{{ current_user.username }}/">UnFollow</a></button>
-    {% endif %}
-      </div>
 
-
+    </div>
 
 
 </body>

@@ -27,7 +27,6 @@ def tweet_detail(request, tweet_id):
 @login_required
 def create_tweet_view(request):
     # if request.method == 'POST':
-    notify = Notification.objects.filter(profile=request.user)
     form = TweetForm(request.POST)
     if form.is_valid():
         data = form.cleaned_data
@@ -48,4 +47,4 @@ def create_tweet_view(request):
         return HttpResponseRedirect(reverse('homepage'))
 
     else:
-        return render(request, 'generic_form.html', {'form': form, 'notify': notify})
+        return render(request, 'generic_form.html', {'form': form})
