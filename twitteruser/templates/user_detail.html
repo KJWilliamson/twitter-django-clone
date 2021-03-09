@@ -45,14 +45,12 @@
 </nav>
 
     <div class="container">
-
-    <h3>@{{ current_user.username }}</h3>
+        <h3>@{{ current_user.username }}</h3>
       <h3>Tweets: {{ user_tweets|length }}</h3>
     <h3>Following: {{ current_user.following }}</h3>
 
-
-      <button><a href="/follow/{{ current_user.followers.add }}/">Follow</a></button>
-      <button><a href="/unfollow/{{ current_user.followers.remove }}/">UnFollow</a></button>
+        <button><a href=“/follow/{{ current_user.id }}/“>Follow</a></button>
+      <button><a href=“/unfollow/{{ current_user.id }}/“>Unfollow</a></button>
 
     </div>
     <br />
