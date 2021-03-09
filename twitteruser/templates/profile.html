@@ -44,13 +44,17 @@
   </nav>
   <h3>@{{ profile_user.username }}</h3>
   <h3>Tweets: {{ tweet_counter }}</h3>
-  <h3>Following: </h3>
+  <h3>Following: (( current_user.following.all() }}</h3>
   <br />
   <br />
+        <button><a href=“/follow/{{ current_user.id }}/">Follow</a></button>
+        <button><a href=“/unfollow/{{ current_user.id }}/“>Unfollow</a></button>
 
   {% for t in main_user_tweets %}
        <li><a href="/user/{{t.tweeter}}">@{{ t.tweeter }}</a> <a href="/tweet/{{t.id}}">{{ t.created_at }}</a><br />
                  {{ t.text }} </li>
         {% endfor %}
+
+
 
 </body>

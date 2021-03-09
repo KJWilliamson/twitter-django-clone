@@ -22,7 +22,6 @@ from tweet.views import create_tweet_view, tweet_detail
 from twitteruser.views import user_detail_view, unfollow_view, follow_view, profile_view
 
 
-
 urlpatterns = [
     path('', index, name='homepage'),
     path('signup/', signup_view, name='signup'),
