@@ -49,15 +49,19 @@
     </div>
   </div>
 </nav>
-  {% block content %}
-          <h1>Notifications</h1>
-        <ul>
-        {% for n in notification %}
-          <li>Sent from: @{{ n.tweet.tweeter }} <br />
-          Tweet: {{ n.tweet }}</li>
-        {% endfor %}
 
-   </ul>
- {% endblock content %}
+
+
+{% block content %}
+          <h1>Notifications</h1>
+  <div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    {% for n in notification %}
+    <li class="list-group-item">Sent from: @{{ n.tweet.tweeter }} </li>
+    <li class="list-group-item">Tweet: {{ n.tweet }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock content %}
 
 </body>
