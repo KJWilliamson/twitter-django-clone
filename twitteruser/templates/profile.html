@@ -13,10 +13,10 @@
   </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand"><strong>TWITTERCLONE</strong></a>
-    <a href="/" class="btn btn-warning active" role="button" data-bs-toggle="button">Home</a>
+    <a href="/" class="btn btn-secondary active" role="button" data-bs-toggle="button">Home</a>
 <!--    <a class="navbar-brand" type="button" href="/">Home</a>-->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -24,15 +24,15 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a href="/createtweet/" class="btn btn-info active" role="button" data-bs-toggle="button">Tweets!!!</a>
+          <a href="/createtweet/" class="btn btn-danger active" role="button" data-bs-toggle="button">Tweets!!!</a>
 <!--          <a class="nav-link active" aria-current="page" href="#">Tweets!!!</a>-->
         </li>
         <li class="nav-item">
-          <a href="/notifications/" class="btn btn-warning active" role="button" data-bs-toggle="button">Notifications</a>
+          <a href="/notifications/" class="btn btn-success active" role="button" data-bs-toggle="button">Notifications</a>
 <!--          <a class="nav-link active" href="/notifications/">Notifications</a>-->
         </li>
         <li class="nav-item">
-          <a href="/profile/" class="btn btn-info active" role="button" data-bs-toggle="button">My Profile</a>
+          <a href="/profile/" class="btn btn-warning active" role="button" data-bs-toggle="button">My Profile</a>
 <!--          <a class="nav-link active" href="/profile/">My Profile</a>-->
         </li>
           <li class="nav-item">
@@ -43,12 +43,33 @@
   </div>
   </nav>
   <h3>@{{ profile_user.username }}</h3>
-  <h3>Tweets: {{ tweet_counter }}</h3>
-  <h3>Following: (( current_user.following.all() }}</h3>
+  <div class="container">
+    {% if request.user.is_authenticated %}
+
+    <h3>Welcome, @{{request.user.username}}</h3>
+    <br />
+    <br />
+    <h5>@{{request.user.username}}</h5>
+
+    <div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+    <li class="list-group-item">Tweets: {{ tweet_count }}</li>
+    <li class="list-group-item">Following: {{ current_user.following }}</li>
+    </ul>
+    </div>
+<!--    <h5>Tweets: {{ tweet_count }}</h5>-->
+<!--    <h5>Following: {{ current_user.following }}</h5>-->
+    {% else %}
+    <h4>Welcome to TwitterClone</h4>
+    {% endif %}
+
   <br />
   <br />
-        <button><a href=“/follow/{{ current_user.id }}/">Follow</a></button>
-        <button><a href=“/unfollow/{{ current_user.id }}/“>Unfollow</a></button>
+    <button type="button" class="btn btn-light"><a href=“/follow/{{ current_user.id }}/">Follow</a></button>
+    <button type="button" class="btn btn-dark"><a href=“/unfollow/{{ current_user.id }}/“>Unfollow</a></button>
+
+<!--        <button><a href=“/follow/{{ current_user.id }}/">Follow</a></button>-->
+<!--        <button><a href=“/unfollow/{{ current_user.id }}/“>Unfollow</a></button>-->
 
   {% for t in main_user_tweets %}
        <li><a href="/user/{{t.tweeter}}">@{{ t.tweeter }}</a> <a href="/tweet/{{t.id}}">{{ t.created_at }}</a><br />
