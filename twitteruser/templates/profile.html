@@ -42,26 +42,26 @@
     </div>
   </div>
   </nav>
-  <h3>@{{ profile_user.username }}</h3>
-  <div class="container">
-    {% if request.user.is_authenticated %}
 
-    <h3>Welcome, @{{request.user.username}}</h3>
-    <br />
-    <br />
-    <h5>@{{request.user.username}}</h5>
 
+
+    <div class="card">
+        <div class="card-body">
+    Welcome, @{{request.user.username}}
+  </div>
+</div>
+  <br />
+  <br />
     <div class="card" style="width: 18rem;">
     <ul class="list-group list-group-flush">
+      <li class="list-group-item">@{{ profile_user.username }}</li>
     <li class="list-group-item">Tweets: {{ tweet_count }}</li>
     <li class="list-group-item">Following: {{ current_user.following }}</li>
     </ul>
     </div>
 <!--    <h5>Tweets: {{ tweet_count }}</h5>-->
 <!--    <h5>Following: {{ current_user.following }}</h5>-->
-    {% else %}
-    <h4>Welcome to TwitterClone</h4>
-    {% endif %}
+
 
   <br />
   <br />

@@ -49,13 +49,10 @@
 
 
   <h1>TWEET</h1>
-  <ul>
 
-       <li> @{{ tweet_id.tweeter }} {{ tweet_id.created_at }} <br />
-       {{ tweet_id.text }}</li>
-
-
-
-   </ul>
-
-</form>
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">@{{ tweet_id.tweeter }} {{ tweet_id.created_at }}</li>
+    <li class="list-group-item">{{ tweet_id.text }}</li>
+  </ul>
+</div>
