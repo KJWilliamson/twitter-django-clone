@@ -1,5 +1,6 @@
 <!--https://getbootstrap.com/docs/5.0/getting-started/introduction/-->
-<!doctype html>
+{% load static %}
+<!--<!doctype html>-->
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -50,7 +51,8 @@
   </div>
 </nav>
 
-
+<body style="background-image: url('{% static 'orangebird.png' %}'); background-repeat: no-repeat; background-position: right top;
+}">
 
 {% block content %}
           <h1>Notifications</h1>
