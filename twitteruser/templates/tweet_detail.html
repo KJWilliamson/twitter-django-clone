@@ -1,5 +1,6 @@
 <!--https://getbootstrap.com/docs/5.0/getting-started/introduction/-->
-<!doctype html>
+{% load static %}
+<!--<!doctype html>-->
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -56,3 +57,6 @@
     <li class="list-group-item">{{ tweet_id.text }}</li>
   </ul>
 </div>
+
+<body style="background-image: url('{% static 'orangebird.png' %}'); background-repeat: no-repeat; background-position: right top;
+}">
