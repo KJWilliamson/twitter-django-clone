@@ -51,7 +51,7 @@
     <div class="container">
         <h3>@{{ current_user.username }}</h3>
       <h3>Tweets: {{ user_tweets|length }}</h3>
-    <h3>Following: {{users_followers | length}}</h3>
+    <h3>Following: {{ users_following|length }}</h3>
 
 <!--        April got this working. or not-->
         <a href="/follow/{{current_user.id}}">Follow</a>

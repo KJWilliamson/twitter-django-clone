@@ -53,7 +53,7 @@ def profile_view(request):
 def user_detail_view(request, username):
     current_user = TwitterUser.objects.get(username=username)
     user_tweets = Tweet.objects.filter(tweeter=current_user).order_by('created_at').reverse()
-    users_following = current_user.following.all()
+    users_following = current_user.following.all().count()
     if current_user.is_authenticated:
         following = request.user.following.all()
     else:
