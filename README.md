@@ -1,3 +1,11 @@
+MY DESIGN
+
+
+![twitterclone-django](https://user-images.githubusercontent.com/24884380/188700619-7d745ddb-8e9f-40be-8342-333281aa3640.jpg)
+
+
+
+
 # 🐦The Ever-So-Slightly-Intimidating Project 🐦
 
 Now that we've started really putting together real applications with Django, it's time to step up basically everything.
@@ -55,8 +63,4 @@ Whatever you can write that delivers the pages and functionality shown in the vi
 
 Take a look at the rubric for more specific requirements.
 
-#### **Submission**
 
-Submit a link to your pull request
-
-<pre>https://github.com/kenzie-se-q4/recipebox-v1/&ltgithub_username&gt/pull/&ltnumber&gt</pre>
