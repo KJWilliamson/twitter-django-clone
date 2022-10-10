@@ -44,7 +44,7 @@ This project comes with a preconfigured **.gitignore** file in your project dire
 
 **Part 2**
 
-Though this assignment requires some new knowledge, everything I used is either on stackoverflow or in the Django documentation. Some pieces that might help you:
+Though this requires some new knowledge, everything I used is either on stackoverflow or in the Django documentation. Some pieces that might help you:
 
 *   [https://stackoverflow.com/a/16614136](https://stackoverflow.com/a/16614136)
 *   [https://docs.djangoproject.com/en/3.0/topics/db/examples/many_to_many/](https://docs.djangoproject.com/en/3.0/topics/db/examples/many_to_many/)
@@ -60,7 +60,4 @@ Whatever you can write that delivers the pages and functionality shown in the vi
 *   Segment each major section of your app into its own folder, then put another copy of the appropriate files under it. For example, `from tweet.models import Tweet`.
 *   Use the `include` keyword I linked above; it will make your templating so much easier.
 *   Create a single function that organizes all the data most of your templates need; then you only have to import that helper function into each view that performs a large render and you know the information will already be there.
-
-Take a look at the rubric for more specific requirements.
-
 
