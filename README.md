@@ -8,11 +8,15 @@ MY DESIGN
 
 # 🐦The Ever-So-Slightly-Intimidating Project 🐦
 
-Now that we've started really putting together real applications with Django, it's time to step up basically everything.
+<!-- Now that we've started really putting together real applications with Django, it's time to step up basically everything.
 
-One of the most important things about web development (that I'm sure you've already figured out, but I'll reiterate here) is that once you learn the building blocks of what makes a website, you just repeat those blocks to build larger and larger sites. What we're going to do is take the building blocks from the recipe application and turn them into something much larger and greater.
+One of the most important things about web development (that I'm sure you've already figured out, but I'll reiterate here) is that once you learn the building blocks of what makes a website, you just repeat those blocks to build larger and larger sites. What we're going to do is take the building blocks from the recipe application and turn them into something much larger and greater. -->
 
-What we're going to do is build a small clone of Twitter. It will feature logged in users, a customized homepage, a tweet composing page, the ability to follow other users, and more. We'll be using every single concept from the previous applications plus a few more; don't worry though, we've got plenty of time. The video from the demo I gave on my site is / will be linked at the bottom of this assignment.
+Clone of Twitter. Features logged in users, a customized homepage, a tweet composing page, the ability to follow other users, and more. 
+
+
+<!--
+We'll be using every single concept from the previous applications plus a few more; don't worry though, we've got plenty of time. The video from the demo I gave on my site is / will be linked at the bottom of this assignment.
 
 <span>This project is divided into two parts. Part 1 is all about the folder structure. Part 2 is going to be implementing the logic and front end, and there's lots of resources available to help.</span> 
 
@@ -60,4 +64,6 @@ Whatever you can write that delivers the pages and functionality shown in the vi
 *   Segment each major section of your app into its own folder, then put another copy of the appropriate files under it. For example, `from tweet.models import Tweet`.
 *   Use the `include` keyword I linked above; it will make your templating so much easier.
 *   Create a single function that organizes all the data most of your templates need; then you only have to import that helper function into each view that performs a large render and you know the information will already be there.
+
+-->
 
