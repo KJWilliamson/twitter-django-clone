@@ -1,4 +1,6 @@
-### 🐦 Clone of Twitter using Django. Features:
+### 🐦 Clone of Twitter using Django. 
+Features:
+
 * Authentication with logged in users
 * A customized homepage 
 * Tweet composing page
