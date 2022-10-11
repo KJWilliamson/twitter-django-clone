@@ -1,10 +1,8 @@
-MY DESIGN
-
-
-# 🐦The Ever-So-Slightly-Intimidating Project 🐦
-
-
-Clone of Twitter. Features logged in users, a customized homepage, a tweet composing page, the ability to follow other users, and more. 
+### 🐦 Clone of Twitter using Django. Features:
+* Authentication with logged in users
+* A customized homepage 
+* Tweet composing page
+* The ability to follow other users and more. 
 
 
 
